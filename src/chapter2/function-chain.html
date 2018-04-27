@@ -4,15 +4,17 @@
 <meta charset="utf-8">
 
     <title>Selection Function Chain</title>
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
-    <script type="text/javascript" src="../../lib/d3.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
 </head>
 
 <body>
 
 <script type="text/javascript">
+    // cache the selection into a local var
     var body = d3.select("body"); // <-- A
 
+    // 
     body.append("section") // <-- B
             .attr("id", "section1") // <-- C
           .append("div") // <-- D

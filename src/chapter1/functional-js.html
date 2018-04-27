@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 
     <title>Functional Javascript</title>
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
-    <script type="text/javascript" src="../../lib/d3.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css"/>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
 </head>
 
 <body>
@@ -17,13 +17,13 @@
         var headline, description; // <-- B
 
         instance.render = function () {
-            var div = d3.select('body').append("div");
+            var div = d3.select('body').append('div');
 
-            div.append("h3").text(headline); // <-- C
+            div.append('h3').text(headline); // <-- C
 
-            div.attr("class", "box")
-               .attr("style", "color:" + spec.color) // <-- D
-               .append("p")
+            div.attr('class', 'box')
+               .attr('style', 'color:' + spec.color) // <-- D
+               .append('p')
                    .text(description); // <-- E
 
             return instance; // <-- F
@@ -44,9 +44,9 @@
         return instance; // <-- I
     }
 
-    var widget = SimpleWidget({color: "#6495ed"})
-            .headline("Simple Widget")
-            .description("This is a simple widget demonstrating functional javascript.");
+    var widget = SimpleWidget({color: '#6495ed'})
+            .headline('Simple Widget')
+            .description('This is a simple widget demonstrating functional javascript.');
     widget.render();
 </script>
 

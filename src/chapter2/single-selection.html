@@ -1,20 +1,89 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <title>Single Selection</title>
-    <link rel="stylesheet" type="text/css" href="../../css/styles.css"/>
-    <script type="text/javascript" src="../../lib/d3.js"></script>
+    <link rel="stylesheet" type="text/css" href="/css/styles.css" />
+    <script src="http://d3js.org/d3.v3.min.js"></script>
 </head>
 
 <body>
-
-<p id="target"></p> <!-- A -->
-
-<script type="text/javascript">
+    <p id="target"></p>
+    <!-- A -->
+    <script type="text/javascript">
     d3.select("p#target") // <-- B
         .text("Hello world!"); // <-- C
-</script>
 
+    // selection.attr - allows you to retrieve or modify a given attribute on the selected element(s)
+
+    // set foo attribute to ggo on p element
+    d3.select("p").attr("foo", "goo");
+
+    // get foo attribute on p element
+    d3.select("p").attr("foo");
+
+    // selection.classed - allows you to add or remove CSS classes on the selected element(s)
+
+    // test to see if the p element has CSS class goo
+    d3.select("p").classed("goo");
+
+    // add CSS cloass goo to p element
+    d3.select("p").classed("goo", true);
+
+    // remove CSS class goo from p element. classed function
+    // also accepts a function as the value so the decision
+    // of adding and removing can be made dynamically
+    d3.select("p").classed("goo", function() {
+        return false;
+    });
+
+    // selection.style - lets you set the CSS style with a specific name to the specific value on the selected element(s).
+
+    // get p element's style for font-size
+    d3.select("p").style("font-size");
+
+    // set font-size style for p to 10px
+    d3.select("p").style("font-size", "10px");
+
+    // set font-size style for p to the result of some 
+    // calculation. style function also accepts a function as // the value can be produced dynamically
+    d3.select("p").style("font-size", function(normalFontSize) {
+        return normalFontSize && normalFontSize + 10;
+    });
+
+    // selection.text - allows you to access and to set the text content of the selected element(s).
+
+    // get p element's text content
+    d3.select("p").text();
+
+    // set p element's text content to "Hello"
+    d3.select("p").text("Hello");
+
+    // text function also accepts a function as the value, 
+    // thus allowing setting text content to some dynamically 
+    // produced message
+    d3.select("p").text(function() {
+        var model = retrieveModel();
+        return model.message;
+    });
+
+    // selection.html - lets you modify the element's inner HTML content.
+
+    // get p element's inner html content
+    d3.select("p").html();
+
+    // set p element's inner html content to "<b>Hello</b>"
+    d3.select("p").text("<b>Hello</b>");
+    
+    // html function also accepts a function as the value, 
+    // thus allowing setting html content to some dynamically 
+    // produced message
+    d3.select("p").text(function() {
+        var template = compileTemplate();
+        return template();
+    });
+    </script>
 </body>
+
 </html>
